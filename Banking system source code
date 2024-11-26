@@ -1,0 +1,90 @@
+BANKING SYSTEM
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Account{
+    string name;
+    int acc_num;
+    string acc_type;
+    double balance;
+
+
+    public:
+    void set(){
+        cout<<"Enter Account Holder's Name: "<<endl;
+        getline(cin,name);
+       
+        cout<<"Enter account number:"<<endl;
+        cin>>acc_num;
+        
+        cout<<"Enter type of your account: "<<endl;
+        cin>> acc_type;
+        
+        cout<<"Enter Account's initial Balance: "<<endl;
+        cin>>balance;
+
+
+    }
+    void deposit(){
+        int deposit;
+        cout<< "Enter amount to be deposited: "<<endl;
+        cin>> deposit;
+        balance = balance+deposit;
+        cout<<"Account balance after deposit is: "<<"Rs."<<balance<<endl;
+
+    }
+    void withdraw(){
+        int withdraw;
+        cout<<"enter amount you want to withdraw: "<<endl;
+        cin>>withdraw;
+
+        if(withdraw>balance){
+            cout<<"Insuficient amount entered"<<endl;
+
+        }
+        else{
+            balance = balance - withdraw;
+            cout<<"Account balance after withdrwal is: "<<"Rs."<<balance<<endl;
+        }
+    }
+
+    void display(){
+        cout<<"Account holder's name: "<<name<<endl;
+        cout<<"Account balance: "<<balance<<endl;
+    }
+};
+
+int main(){
+    Account amnt;
+    amnt.set();
+
+    while(true){
+        int operation;
+        cout<<"1.Deposit   2.Withdraw  3.Display  0. Exit"<<endl;
+        cout<<"Enter Opertaion you want: "<<endl;
+        cin>>operation;
+
+        if(operation==1){
+            amnt.deposit();
+        }
+        else if(operation==2){
+            amnt.withdraw();
+        }
+        else if(operation==3){
+            amnt.display();
+
+        }
+        else if(operation==0){
+//             break;
+        }
+        else{
+            cout<<"Enter a valid operation"<<endl;
+        }
+            }
+            return 0;
+}
+
+
+
